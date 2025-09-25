@@ -1,0 +1,5 @@
+echo "Compiling duplex_wire.c"
+gcc duplex_wire.c -O2 -Wall -lasound -lpthread -o duplex_wire
+echo "Compile done."
+sudo setcap cap_sys_nice+ep ./duplex_wire
+./duplex_wire --cap hw:1,0 --play hw:1,0 --rate 96000 --ch 2 --period 128 --periods 3 --format S32_LE
